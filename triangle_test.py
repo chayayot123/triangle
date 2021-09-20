@@ -21,9 +21,7 @@ class TriangleTest(unittest.TestCase):
     def test_invalid_argument_raises_exception(self):
         """any non-positive argument should raise ValueError"""
         with self.assertRaises(ValueError):
-            print("About to run 1st invalid test")
             b1 = is_triangle(-1, 2, 2)
-            print("About to run 2st invalid test") 
             b2 = is_triangle( 1, 0, 2)
 
         with self.assertRaises(ValueError):

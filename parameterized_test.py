@@ -2,11 +2,6 @@ import unittest
 from triangle import is_triangle
 
 class TriangleTest(unittest.TestCase):
-    # The list of values for your tests can be defined:  
-    # - outside the class (global variable)
-    # - as a class variable (like this) 
-    # - as a local variable inside the test method.
-    # Use which ever is most readable.
     valid_triangles = [
             (1, 1, 1),
             (3, 4, 5),
@@ -24,7 +19,7 @@ class TriangleTest(unittest.TestCase):
             (2, 3, 9)
             ]
     
-    invalid_arg = [
+    invalid_argument_raises_exception = [
             (-1, 2, 2),
             ( 1, 0, 2),
             ( 1, -1, 2),
@@ -51,8 +46,8 @@ class TriangleTest(unittest.TestCase):
                 self.assertFalse( is_triangle(a, b, c), msg)
     
 
-    # def test_invalid_argument_raises_exception(self):
-    #     for a,b,c in self.invalid_arg:
-    #         with self.subTest():
-    #             msg = f"side are ({a},{b},{c})"
-    #             self.assertRaises( is_triangle(a, b, c), msg)
+    def test_invalid_argument_raises_exception(self):
+        for a,b,c in self.invalid_argument_raises_exception:
+            with self.subTest():
+                with self.assertRaises(ValueError):
+                    b = is_triangle(a, b, c)
